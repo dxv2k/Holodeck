@@ -276,6 +276,7 @@ class Holodeck:
 
         # empty house
         scene = self.empty_house(scene)
+        print("Step 1: Empty house")
 
         # generate rooms
         scene = self.generate_rooms(
@@ -283,6 +284,7 @@ class Holodeck:
             additional_requirements_room=self.additional_requirements_room,
             used_assets=used_assets,
         )
+        print("Step 2: Empty rooms")
 
         # generate walls
         scene = self.generate_walls(scene)
@@ -293,6 +295,7 @@ class Holodeck:
             additional_requirements_door=self.additional_requirements_door,
             used_assets=used_assets,
         )
+        print("Step 3: Generate doors")
 
         # generate windows
         scene = self.generate_windows(
@@ -300,6 +303,7 @@ class Holodeck:
             additional_requirements_window=self.additional_requirements_window,
             used_assets=used_assets,
         )
+        print("Step 4: Generate windows")
 
         # select objects
         self.object_selector.random_selection = random_selection
@@ -308,17 +312,20 @@ class Holodeck:
             additional_requirements_object=self.additional_requirements_object,
             used_assets=used_assets,
         )
+        print("Step 5: Select objects")
 
         # generate floor objects
         self.floor_object_generator.use_milp = use_milp
         scene["floor_objects"] = self.floor_object_generator.generate_objects(
             scene, use_constraint=use_constraint
         )
+        print("Step 6: Generate floor objects")
 
         # generate wall objects
         scene["wall_objects"] = self.wall_object_generator.generate_wall_objects(
             scene, use_constraint=use_constraint
         )
+        print("Step 7: Generate wall objects")
 
         # combine floor and wall objects
         scene["objects"] = scene["floor_objects"] + scene["wall_objects"]
@@ -326,6 +333,7 @@ class Holodeck:
         # generate small objects
         scene = self.generate_small_objects(scene, used_assets=used_assets)
         scene["objects"] += scene["small_objects"]
+        print("Step 8: Generate small objects")
 
         # generate ceiling objects
         if add_ceiling:
@@ -334,19 +342,24 @@ class Holodeck:
                 additional_requirements_ceiling=self.additional_requirements_ceiling,
             )
             scene["objects"] += scene["ceiling_objects"]
+        print("Step 9: Generate ceiling objects")
 
         # generate lights
         lights = generate_lights(scene)
         scene["proceduralParameters"]["lights"] = lights
+        print("Step 10: Generate lights")
 
         # assign layers
         scene = map_asset2layer(scene)
+        print("Step 11: Assign layers")
 
         # assign skybox
         scene = getSkybox(scene)
+        print("Step 12: Assign skybox")
 
         # change ceiling material
         scene = self.change_ceiling_material(scene)
+        print("Step 13: Change ceiling material")
 
         # create folder
         query_name = query.replace(" ", "_").replace("'", "")[:30]
@@ -356,6 +369,7 @@ class Holodeck:
             .replace(":", "-")
             .replace(".", "-")
         )
+        print("Step 14: Create folder")
 
         if add_time:
             folder_name = f"{query_name}-{create_time}"  # query name + time
@@ -369,7 +383,7 @@ class Holodeck:
             os.path.join(save_dir, f"{query_name}.json"),
             json_kwargs=dict(indent=4),
         )
-
+        print("Step 15: Save scene")
         # save top down image
         if generate_image:
             top_image = get_top_down_frame(scene, self.objaverse_asset_dir, 1024, 1024)

@@ -64,10 +64,11 @@ class WallObjectGenerator:
             )
             for room in scene["rooms"]
         ]
-        pool = multiprocessing.Pool(processes=4)
-        all_placements = pool.map(self.generate_wall_objects_per_room, packed_args)
-        pool.close()
-        pool.join()
+        # pool = multiprocessing.Pool(processes=1)
+        # all_placements = pool.map(self.generate_wall_objects_per_room, packed_args)
+        # pool.close()
+        # pool.join()
+        all_placements = [self.generate_wall_objects_per_room(args) for args in packed_args]
 
         for placements in all_placements:
             wall_objects += placements

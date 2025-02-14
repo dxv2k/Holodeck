@@ -2,7 +2,8 @@ import ast
 import os
 import traceback
 from argparse import ArgumentParser
-
+import torch.multiprocessing
+torch.multiprocessing.set_sharing_strategy('file_system')
 import compress_json
 from tqdm import tqdm
 
@@ -75,6 +76,7 @@ def generate_single_scene(args):
     print(
         f"Generation complete for {args.query}. Scene saved and any other data saved to {save_dir}."
     )
+    return save_dir
 
 
 def generate_multi_scenes(args):
@@ -202,7 +204,10 @@ if __name__ == "__main__":
         args.used_assets = []
 
     if args.mode == "generate_single_scene":
-        generate_single_scene(args)
+        save_dir = generate_single_scene(args)
+        print("-------DEBUG-------"*5)
+        print("save_dir: ", save_dir)
+        print("-------DEBUG-------"*5)
 
     elif args.mode == "generate_multi_scenes":
         generate_multi_scenes(args)
