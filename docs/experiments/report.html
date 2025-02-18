@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>report</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+</head>
+<body>
+<h2 id="experiment-1">Experiment 1</h2>
+<p><strong>Category:</strong> Object Placement</p>
+<p><strong>Query:</strong> A warehouse with a chair in the exact center.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_with_a_chair_in_th-2025-02-14-23-18-26-194195/A_warehouse_with_a_chair_in_th.png" alt="" /><figcaption>Experiment 1</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-2">Experiment 2</h2>
+<p><strong>Category:</strong> Object Placement</p>
+<p><strong>Query:</strong> A warehouse with a table placed precisely in the middle.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_with_a_table_place-2025-02-14-23-20-41-828767/A_warehouse_with_a_table_place.png" alt="" /><figcaption>Experiment 2</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-3">Experiment 3</h2>
+<p><strong>Category:</strong> Object Placement</p>
+<p><strong>Query:</strong> A warehouse with a single bed positioned at the center of the room.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_with_a_single_bed_-2025-02-14-23-23-52-955986/A_warehouse_with_a_single_bed_.png" alt="" /><figcaption>Experiment 3</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-4">Experiment 4</h2>
+<p><strong>Category:</strong> Object Placement</p>
+<p><strong>Query:</strong> A warehouse with a lamp placed in the center of the floor.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_with_a_lamp_placed-2025-02-14-23-27-13-586879/A_warehouse_with_a_lamp_placed.png" alt="" /><figcaption>Experiment 4</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-5">Experiment 5</h2>
+<p><strong>Category:</strong> Object Placement</p>
+<p><strong>Query:</strong> A warehouse with a painting hanging at the center of the main wall.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_with_a_painting_ha-2025-02-14-23-29-59-299676/A_warehouse_with_a_painting_ha.png" alt="" /><figcaption>Experiment 5</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-6">Experiment 6</h2>
+<p><strong>Category:</strong> Object Placement</p>
+<p><strong>Query:</strong> A warehouse with a rectangular carpet exactly centered.</p>
+<p><em>No image found.</em></p>
+<p><strong>Error Log:</strong></p>
+<pre><code>Traceback (most recent call last):
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 131, in generate_all_experiments
+    save_dir = generate_single_scene(args)
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 57, in generate_single_scene
+    _, save_dir = args.model.generate_scene(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 282, in generate_scene
+    scene = self.generate_rooms(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 156, in generate_rooms
+    rooms = self.floor_generator.generate_rooms(scene, additional_requirements_room)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 58, in generate_rooms
+    rooms = self.get_plan(scene[&quot;query&quot;], scene[&quot;raw_floor_plan&quot;], visualize)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 62, in get_plan
+    parsed_plan = self.parse_raw_plan(raw_plan)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 143, in parse_raw_plan
+    raise ValueError(msg)
+ValueError: Room polygons must not overlap.</code></pre>
+<hr />
+<h2 id="experiment-7">Experiment 7</h2>
+<p><strong>Category:</strong> Object Placement</p>
+<p><strong>Query:</strong> A warehouse with a vending machine positioned in the middle.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_with_a_vending_mac-2025-02-14-23-33-02-436891/A_warehouse_with_a_vending_mac.png" alt="" /><figcaption>Experiment 7</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-8">Experiment 8</h2>
+<p><strong>Category:</strong> Object Placement</p>
+<p><strong>Query:</strong> A warehouse with a desk placed symmetrically in the center.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_with_a_desk_placed-2025-02-14-23-35-56-627690/A_warehouse_with_a_desk_placed.png" alt="" /><figcaption>Experiment 8</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-9">Experiment 9</h2>
+<p><strong>Category:</strong> Object Placement</p>
+<p><strong>Query:</strong> A warehouse with a television mounted at the center of the wall.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_with_a_television_-2025-02-14-23-38-38-379570/A_warehouse_with_a_television_.png" alt="" /><figcaption>Experiment 9</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-10">Experiment 10</h2>
+<p><strong>Category:</strong> Object Placement</p>
+<p><strong>Query:</strong> A warehouse with a statue standing at the room’s center.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_with_a_statue_stan-2025-02-14-23-42-07-655740/A_warehouse_with_a_statue_stan.png" alt="" /><figcaption>Experiment 10</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-11">Experiment 11</h2>
+<p><strong>Category:</strong> Object Relationship</p>
+<p><strong>Query:</strong> A warehouse with a chair facing a desk.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_with_a_chair_facin-2025-02-14-23-48-02-847426/A_warehouse_with_a_chair_facin.png" alt="" /><figcaption>Experiment 11</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-12">Experiment 12</h2>
+<p><strong>Category:</strong> Object Relationship</p>
+<p><strong>Query:</strong> A warehouse with a sofa facing a television, with a rug underneath.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_with_a_sofa_facing-2025-02-14-23-51-33-164218/A_warehouse_with_a_sofa_facing.png" alt="" /><figcaption>Experiment 12</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-13">Experiment 13</h2>
+<p><strong>Category:</strong> Object Relationship</p>
+<p><strong>Query:</strong> A warehouse with a table positioned between two chairs.</p>
+<p><em>No image found.</em></p>
+<p><strong>Error Log:</strong></p>
+<pre><code>Traceback (most recent call last):
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 131, in generate_all_experiments
+    save_dir = generate_single_scene(args)
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 57, in generate_single_scene
+    _, save_dir = args.model.generate_scene(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 282, in generate_scene
+    scene = self.generate_rooms(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 156, in generate_rooms
+    rooms = self.floor_generator.generate_rooms(scene, additional_requirements_room)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 58, in generate_rooms
+    rooms = self.get_plan(scene[&quot;query&quot;], scene[&quot;raw_floor_plan&quot;], visualize)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 62, in get_plan
+    parsed_plan = self.parse_raw_plan(raw_plan)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 143, in parse_raw_plan
+    raise ValueError(msg)
+ValueError: Room polygons must not overlap.</code></pre>
+<hr />
+<h2 id="experiment-14">Experiment 14</h2>
+<p><strong>Category:</strong> Object Relationship</p>
+<p><strong>Query:</strong> A warehouse with a lamp placed next to a nightstand.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_with_a_lamp_placed-2025-02-14-23-54-40-210614/A_warehouse_with_a_lamp_placed.png" alt="" /><figcaption>Experiment 14</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-15">Experiment 15</h2>
+<p><strong>Category:</strong> Object Relationship</p>
+<p><strong>Query:</strong> A warehouse with a painting above the couch.</p>
+<p><em>No image found.</em></p>
+<p><strong>Error Log:</strong></p>
+<pre><code>Traceback (most recent call last):
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 131, in generate_all_experiments
+    save_dir = generate_single_scene(args)
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 57, in generate_single_scene
+    _, save_dir = args.model.generate_scene(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 282, in generate_scene
+    scene = self.generate_rooms(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 156, in generate_rooms
+    rooms = self.floor_generator.generate_rooms(scene, additional_requirements_room)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 58, in generate_rooms
+    rooms = self.get_plan(scene[&quot;query&quot;], scene[&quot;raw_floor_plan&quot;], visualize)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 62, in get_plan
+    parsed_plan = self.parse_raw_plan(raw_plan)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 143, in parse_raw_plan
+    raise ValueError(msg)
+ValueError: Room polygons must not overlap.</code></pre>
+<hr />
+<h2 id="experiment-16">Experiment 16</h2>
+<p><strong>Category:</strong> Object Relationship</p>
+<p><strong>Query:</strong> A warehouse with a dining table surrounded by four chairs.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_with_a_dining_tabl-2025-02-14-23-57-52-046092/A_warehouse_with_a_dining_tabl.png" alt="" /><figcaption>Experiment 16</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-17">Experiment 17</h2>
+<p><strong>Category:</strong> Object Relationship</p>
+<p><strong>Query:</strong> A warehouse with a bookshelf aligned against the wall.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_with_a_bookshelf_a-2025-02-14-23-59-50-785628/A_warehouse_with_a_bookshelf_a.png" alt="" /><figcaption>Experiment 17</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-18">Experiment 18</h2>
+<p><strong>Category:</strong> Object Relationship</p>
+<p><strong>Query:</strong> A warehouse with a bed and a nightstand beside it.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_with_a_bed_and_a_n-2025-02-15-00-04-16-225903/A_warehouse_with_a_bed_and_a_n.png" alt="" /><figcaption>Experiment 18</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-19">Experiment 19</h2>
+<p><strong>Category:</strong> Object Relationship</p>
+<p><strong>Query:</strong> A warehouse with a mirror mounted on the wall above a dresser.</p>
+<p><em>No image found.</em></p>
+<p><strong>Error Log:</strong></p>
+<pre><code>Traceback (most recent call last):
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 131, in generate_all_experiments
+    save_dir = generate_single_scene(args)
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 57, in generate_single_scene
+    _, save_dir = args.model.generate_scene(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 282, in generate_scene
+    scene = self.generate_rooms(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 156, in generate_rooms
+    rooms = self.floor_generator.generate_rooms(scene, additional_requirements_room)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 58, in generate_rooms
+    rooms = self.get_plan(scene[&quot;query&quot;], scene[&quot;raw_floor_plan&quot;], visualize)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 62, in get_plan
+    parsed_plan = self.parse_raw_plan(raw_plan)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 143, in parse_raw_plan
+    raise ValueError(msg)
+ValueError: Room polygons must not overlap.</code></pre>
+<hr />
+<h2 id="experiment-20">Experiment 20</h2>
+<p><strong>Category:</strong> Object Relationship</p>
+<p><strong>Query:</strong> A warehouse with a refrigerator placed next to a counter.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_with_a_refrigerato-2025-02-15-00-08-22-804808/A_warehouse_with_a_refrigerato.png" alt="" /><figcaption>Experiment 20</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-21">Experiment 21</h2>
+<p><strong>Category:</strong> Object Overlap</p>
+<p><strong>Query:</strong> A warehouse with a chair inside another chair.</p>
+<p><em>No image found.</em></p>
+<p><strong>Error Log:</strong></p>
+<pre><code>Traceback (most recent call last):
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 131, in generate_all_experiments
+    save_dir = generate_single_scene(args)
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 57, in generate_single_scene
+    _, save_dir = args.model.generate_scene(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 282, in generate_scene
+    scene = self.generate_rooms(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 156, in generate_rooms
+    rooms = self.floor_generator.generate_rooms(scene, additional_requirements_room)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 58, in generate_rooms
+    rooms = self.get_plan(scene[&quot;query&quot;], scene[&quot;raw_floor_plan&quot;], visualize)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 69, in get_plan
+    design2material = self.select_materials(all_designs, topk=5)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 203, in select_materials
+    candidate_materials = self.material_selector.match_material(designs, topk=topk)[
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 441, in match_material
+    string_similarity + clip_similarity
+RuntimeError: The size of tensor a (0) must match the size of tensor b (236) at non-singleton dimension 1</code></pre>
+<hr />
+<h2 id="experiment-22">Experiment 22</h2>
+<p><strong>Category:</strong> Object Overlap</p>
+<p><strong>Query:</strong> A warehouse with a table placed over another table.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_with_a_table_place-2025-02-15-00-11-28-507740/A_warehouse_with_a_table_place.png" alt="" /><figcaption>Experiment 22</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-23">Experiment 23</h2>
+<p><strong>Category:</strong> Object Overlap</p>
+<p><strong>Query:</strong> A warehouse with a desk overlapping a shelf.</p>
+<p><em>No image found.</em></p>
+<p><strong>Error Log:</strong></p>
+<pre><code>Traceback (most recent call last):
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 131, in generate_all_experiments
+    save_dir = generate_single_scene(args)
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 57, in generate_single_scene
+    _, save_dir = args.model.generate_scene(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 282, in generate_scene
+    scene = self.generate_rooms(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 156, in generate_rooms
+    rooms = self.floor_generator.generate_rooms(scene, additional_requirements_room)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 58, in generate_rooms
+    rooms = self.get_plan(scene[&quot;query&quot;], scene[&quot;raw_floor_plan&quot;], visualize)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 62, in get_plan
+    parsed_plan = self.parse_raw_plan(raw_plan)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 143, in parse_raw_plan
+    raise ValueError(msg)
+ValueError: Room polygons must not overlap.</code></pre>
+<hr />
+<h2 id="experiment-24">Experiment 24</h2>
+<p><strong>Category:</strong> Object Overlap</p>
+<p><strong>Query:</strong> A warehouse with a cabinet intersecting a fridge.</p>
+<p><em>No image found.</em></p>
+<p><strong>Error Log:</strong></p>
+<pre><code>Traceback (most recent call last):
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 131, in generate_all_experiments
+    save_dir = generate_single_scene(args)
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 57, in generate_single_scene
+    _, save_dir = args.model.generate_scene(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 282, in generate_scene
+    scene = self.generate_rooms(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 156, in generate_rooms
+    rooms = self.floor_generator.generate_rooms(scene, additional_requirements_room)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 58, in generate_rooms
+    rooms = self.get_plan(scene[&quot;query&quot;], scene[&quot;raw_floor_plan&quot;], visualize)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 62, in get_plan
+    parsed_plan = self.parse_raw_plan(raw_plan)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 143, in parse_raw_plan
+    raise ValueError(msg)
+ValueError: Room polygons must not overlap.</code></pre>
+<hr />
+<h2 id="experiment-25">Experiment 25</h2>
+<p><strong>Category:</strong> Object Overlap</p>
+<p><strong>Query:</strong> A warehouse with two beds stacked on top of each other.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_with_two_beds_stac-2025-02-15-00-14-43-680749/A_warehouse_with_two_beds_stac.png" alt="" /><figcaption>Experiment 25</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-26">Experiment 26</h2>
+<p><strong>Category:</strong> Object Overlap</p>
+<p><strong>Query:</strong> A warehouse where a rug is floating above the floor.</p>
+<p><em>No image found.</em></p>
+<p><strong>Error Log:</strong></p>
+<pre><code>Traceback (most recent call last):
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 131, in generate_all_experiments
+    save_dir = generate_single_scene(args)
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 57, in generate_single_scene
+    _, save_dir = args.model.generate_scene(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 282, in generate_scene
+    scene = self.generate_rooms(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 156, in generate_rooms
+    rooms = self.floor_generator.generate_rooms(scene, additional_requirements_room)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 58, in generate_rooms
+    rooms = self.get_plan(scene[&quot;query&quot;], scene[&quot;raw_floor_plan&quot;], visualize)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 62, in get_plan
+    parsed_plan = self.parse_raw_plan(raw_plan)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 143, in parse_raw_plan
+    raise ValueError(msg)
+ValueError: Room polygons must not overlap.</code></pre>
+<hr />
+<h2 id="experiment-27">Experiment 27</h2>
+<p><strong>Category:</strong> Object Overlap</p>
+<p><strong>Query:</strong> A warehouse where a chair is embedded halfway into a couch.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_where_a_chair_is_e-2025-02-15-00-17-42-072460/A_warehouse_where_a_chair_is_e.png" alt="" /><figcaption>Experiment 27</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-28">Experiment 28</h2>
+<p><strong>Category:</strong> Object Overlap</p>
+<p><strong>Query:</strong> A warehouse where a vending machine is inside another vending machine.</p>
+<p><em>No image found.</em></p>
+<p><strong>Error Log:</strong></p>
+<pre><code>Traceback (most recent call last):
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 131, in generate_all_experiments
+    save_dir = generate_single_scene(args)
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 57, in generate_single_scene
+    _, save_dir = args.model.generate_scene(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 282, in generate_scene
+    scene = self.generate_rooms(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 156, in generate_rooms
+    rooms = self.floor_generator.generate_rooms(scene, additional_requirements_room)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 58, in generate_rooms
+    rooms = self.get_plan(scene[&quot;query&quot;], scene[&quot;raw_floor_plan&quot;], visualize)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 62, in get_plan
+    parsed_plan = self.parse_raw_plan(raw_plan)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 143, in parse_raw_plan
+    raise ValueError(msg)
+ValueError: Room polygons must not overlap.</code></pre>
+<hr />
+<h2 id="experiment-29">Experiment 29</h2>
+<p><strong>Category:</strong> Object Overlap</p>
+<p><strong>Query:</strong> A warehouse where a bookshelf overlaps with a sofa.</p>
+<p><em>No image found.</em></p>
+<p><strong>Error Log:</strong></p>
+<pre><code>Traceback (most recent call last):
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 131, in generate_all_experiments
+    save_dir = generate_single_scene(args)
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 57, in generate_single_scene
+    _, save_dir = args.model.generate_scene(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 282, in generate_scene
+    scene = self.generate_rooms(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 156, in generate_rooms
+    rooms = self.floor_generator.generate_rooms(scene, additional_requirements_room)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 58, in generate_rooms
+    rooms = self.get_plan(scene[&quot;query&quot;], scene[&quot;raw_floor_plan&quot;], visualize)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 62, in get_plan
+    parsed_plan = self.parse_raw_plan(raw_plan)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 143, in parse_raw_plan
+    raise ValueError(msg)
+ValueError: Room polygons must not overlap.</code></pre>
+<hr />
+<h2 id="experiment-30">Experiment 30</h2>
+<p><strong>Category:</strong> Object Overlap</p>
+<p><strong>Query:</strong> A warehouse where a TV is inside a wall.</p>
+<p><em>No image found.</em></p>
+<p><strong>Error Log:</strong></p>
+<pre><code>Traceback (most recent call last):
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 131, in generate_all_experiments
+    save_dir = generate_single_scene(args)
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 57, in generate_single_scene
+    _, save_dir = args.model.generate_scene(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 301, in generate_scene
+    scene = self.generate_windows(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 196, in generate_windows
+    raw_window_plan, walls, windows = self.window_generator.generate_windows(
+  File &quot;./ai2holodeck/generation/windows.py&quot;, line 102, in generate_windows
+    window_id = self.select_window(
+  File &quot;./ai2holodeck/generation/windows.py&quot;, line 247, in select_window
+    top_window_ids = sorted_window_ids[0]
+IndexError: list index out of range</code></pre>
+<hr />
+<h2 id="experiment-31">Experiment 31</h2>
+<p><strong>Category:</strong> Blocking &amp; Accessibility</p>
+<p><strong>Query:</strong> A warehouse where the entrance is blocked by a stack of crates.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_where_the_entrance-2025-02-15-00-21-23-633048/A_warehouse_where_the_entrance.png" alt="" /><figcaption>Experiment 31</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-32">Experiment 32</h2>
+<p><strong>Category:</strong> Blocking &amp; Accessibility</p>
+<p><strong>Query:</strong> A warehouse where a forklift is obstructing the main door.</p>
+<p><em>No image found.</em></p>
+<p><strong>Error Log:</strong></p>
+<pre><code>Traceback (most recent call last):
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 131, in generate_all_experiments
+    save_dir = generate_single_scene(args)
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 57, in generate_single_scene
+    _, save_dir = args.model.generate_scene(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 282, in generate_scene
+    scene = self.generate_rooms(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 156, in generate_rooms
+    rooms = self.floor_generator.generate_rooms(scene, additional_requirements_room)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 58, in generate_rooms
+    rooms = self.get_plan(scene[&quot;query&quot;], scene[&quot;raw_floor_plan&quot;], visualize)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 62, in get_plan
+    parsed_plan = self.parse_raw_plan(raw_plan)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 143, in parse_raw_plan
+    raise ValueError(msg)
+ValueError: Room polygons must not overlap.</code></pre>
+<hr />
+<h2 id="experiment-33">Experiment 33</h2>
+<p><strong>Category:</strong> Blocking &amp; Accessibility</p>
+<p><strong>Query:</strong> A warehouse where a car is parked inside, blocking access.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_where_a_car_is_par-2025-02-15-00-24-11-679692/A_warehouse_where_a_car_is_par.png" alt="" /><figcaption>Experiment 33</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-34">Experiment 34</h2>
+<p><strong>Category:</strong> Blocking &amp; Accessibility</p>
+<p><strong>Query:</strong> A warehouse with a barricade preventing movement.</p>
+<p><em>No image found.</em></p>
+<p><strong>Error Log:</strong></p>
+<pre><code>Traceback (most recent call last):
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 131, in generate_all_experiments
+    save_dir = generate_single_scene(args)
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 57, in generate_single_scene
+    _, save_dir = args.model.generate_scene(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 282, in generate_scene
+    scene = self.generate_rooms(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 156, in generate_rooms
+    rooms = self.floor_generator.generate_rooms(scene, additional_requirements_room)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 58, in generate_rooms
+    rooms = self.get_plan(scene[&quot;query&quot;], scene[&quot;raw_floor_plan&quot;], visualize)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 62, in get_plan
+    parsed_plan = self.parse_raw_plan(raw_plan)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 143, in parse_raw_plan
+    raise ValueError(msg)
+ValueError: Room polygons must not overlap.</code></pre>
+<hr />
+<h2 id="experiment-35">Experiment 35</h2>
+<p><strong>Category:</strong> Blocking &amp; Accessibility</p>
+<p><strong>Query:</strong> A warehouse where boxes are blocking the staircase.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_where_boxes_are_bl-2025-02-15-00-27-14-765904/A_warehouse_where_boxes_are_bl.png" alt="" /><figcaption>Experiment 35</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-36">Experiment 36</h2>
+<p><strong>Category:</strong> Blocking &amp; Accessibility</p>
+<p><strong>Query:</strong> A warehouse where a large table obstructs the only exit.</p>
+<p><em>No image found.</em></p>
+<p><strong>Error Log:</strong></p>
+<pre><code>Traceback (most recent call last):
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 131, in generate_all_experiments
+    save_dir = generate_single_scene(args)
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 57, in generate_single_scene
+    _, save_dir = args.model.generate_scene(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 282, in generate_scene
+    scene = self.generate_rooms(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 156, in generate_rooms
+    rooms = self.floor_generator.generate_rooms(scene, additional_requirements_room)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 58, in generate_rooms
+    rooms = self.get_plan(scene[&quot;query&quot;], scene[&quot;raw_floor_plan&quot;], visualize)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 62, in get_plan
+    parsed_plan = self.parse_raw_plan(raw_plan)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 90, in parse_raw_plan
+    room_type, floor_design, wall_design, vertices = plan.split(&quot;|&quot;)
+ValueError: not enough values to unpack (expected 4, got 3)</code></pre>
+<hr />
+<h2 id="experiment-37">Experiment 37</h2>
+<p><strong>Category:</strong> Blocking &amp; Accessibility</p>
+<p><strong>Query:</strong> A warehouse where a chair is placed in front of a door, preventing entry.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_where_a_chair_is_p-2025-02-15-00-29-58-349220/A_warehouse_where_a_chair_is_p.png" alt="" /><figcaption>Experiment 37</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-38">Experiment 38</h2>
+<p><strong>Category:</strong> Blocking &amp; Accessibility</p>
+<p><strong>Query:</strong> A warehouse where a large rack is positioned in a narrow corridor.</p>
+<p><em>No image found.</em></p>
+<p><strong>Error Log:</strong></p>
+<pre><code>Traceback (most recent call last):
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 131, in generate_all_experiments
+    save_dir = generate_single_scene(args)
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 57, in generate_single_scene
+    _, save_dir = args.model.generate_scene(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 282, in generate_scene
+    scene = self.generate_rooms(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 156, in generate_rooms
+    rooms = self.floor_generator.generate_rooms(scene, additional_requirements_room)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 58, in generate_rooms
+    rooms = self.get_plan(scene[&quot;query&quot;], scene[&quot;raw_floor_plan&quot;], visualize)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 62, in get_plan
+    parsed_plan = self.parse_raw_plan(raw_plan)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 99, in parse_raw_plan
+    vertices = ast.literal_eval(vertices.strip())
+  File &quot;/home/dxv2k/anaconda3/envs/holodeck/lib/python3.10/ast.py&quot;, line 64, in literal_eval
+    node_or_string = parse(node_or_string.lstrip(&quot; \t&quot;), mode=&#39;eval&#39;)
+  File &quot;/home/dxv2k/anaconda3/envs/holodeck/lib/python3.10/ast.py&quot;, line 50, in parse
+    return compile(source, filename, mode, flags,
+  File &quot;&lt;unknown&gt;&quot;, line 1
+    within narrow corridor [(4, 1), (4, 5), (8, 5), (8, 1)]
+           ^^^^^^
+SyntaxError: invalid syntax</code></pre>
+<hr />
+<h2 id="experiment-39">Experiment 39</h2>
+<p><strong>Category:</strong> Blocking &amp; Accessibility</p>
+<p><strong>Query:</strong> A warehouse where a piece of machinery blocks the loading bay.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_where_a_piece_of_m-2025-02-15-00-34-35-518465/A_warehouse_where_a_piece_of_m.png" alt="" /><figcaption>Experiment 39</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-40">Experiment 40</h2>
+<p><strong>Category:</strong> Blocking &amp; Accessibility</p>
+<p><strong>Query:</strong> A warehouse where a sofa is placed in front of the emergency exit.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_where_a_sofa_is_pl-2025-02-15-00-38-11-479691/A_warehouse_where_a_sofa_is_pl.png" alt="" /><figcaption>Experiment 40</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-41">Experiment 41</h2>
+<p><strong>Category:</strong> Scene Complexity</p>
+<p><strong>Query:</strong> A warehouse with a single chair in an empty room.</p>
+<p><em>No image found.</em></p>
+<p><strong>Error Log:</strong></p>
+<pre><code>Traceback (most recent call last):
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 131, in generate_all_experiments
+    save_dir = generate_single_scene(args)
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 57, in generate_single_scene
+    _, save_dir = args.model.generate_scene(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 282, in generate_scene
+    scene = self.generate_rooms(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 156, in generate_rooms
+    rooms = self.floor_generator.generate_rooms(scene, additional_requirements_room)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 58, in generate_rooms
+    rooms = self.get_plan(scene[&quot;query&quot;], scene[&quot;raw_floor_plan&quot;], visualize)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 62, in get_plan
+    parsed_plan = self.parse_raw_plan(raw_plan)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 143, in parse_raw_plan
+    raise ValueError(msg)
+ValueError: Room polygons must not overlap.</code></pre>
+<hr />
+<h2 id="experiment-42">Experiment 42</h2>
+<p><strong>Category:</strong> Scene Complexity</p>
+<p><strong>Query:</strong> A warehouse filled with scattered furniture.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_filled_with_scatte-2025-02-15-00-41-55-467240/A_warehouse_filled_with_scatte.png" alt="" /><figcaption>Experiment 42</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-43">Experiment 43</h2>
+<p><strong>Category:</strong> Scene Complexity</p>
+<p><strong>Query:</strong> A warehouse with 100 chairs arranged in a grid.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_with_100_chairs_ar-2025-02-15-00-44-32-839197/A_warehouse_with_100_chairs_ar.png" alt="" /><figcaption>Experiment 43</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-44">Experiment 44</h2>
+<p><strong>Category:</strong> Scene Complexity</p>
+<p><strong>Query:</strong> A warehouse with a chaotic mix of furniture and objects.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_with_a_chaotic_mix-2025-02-15-00-47-46-860357/A_warehouse_with_a_chaotic_mix.png" alt="" /><figcaption>Experiment 44</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-45">Experiment 45</h2>
+<p><strong>Category:</strong> Scene Complexity</p>
+<p><strong>Query:</strong> A warehouse with shelves systematically arranged in rows.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_with_shelves_syste-2025-02-15-00-50-29-856149/A_warehouse_with_shelves_syste.png" alt="" /><figcaption>Experiment 45</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-46">Experiment 46</h2>
+<p><strong>Category:</strong> Scene Complexity</p>
+<p><strong>Query:</strong> A warehouse with objects stacked chaotically on top of each other.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_with_objects_stack-2025-02-15-00-52-48-169571/A_warehouse_with_objects_stack.png" alt="" /><figcaption>Experiment 46</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-47">Experiment 47</h2>
+<p><strong>Category:</strong> Scene Complexity</p>
+<p><strong>Query:</strong> A warehouse with an open floor space but a cluttered corner.</p>
+<p><em>No image found.</em></p>
+<p><strong>Error Log:</strong></p>
+<pre><code>Traceback (most recent call last):
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 131, in generate_all_experiments
+    save_dir = generate_single_scene(args)
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 57, in generate_single_scene
+    _, save_dir = args.model.generate_scene(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 282, in generate_scene
+    scene = self.generate_rooms(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 156, in generate_rooms
+    rooms = self.floor_generator.generate_rooms(scene, additional_requirements_room)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 58, in generate_rooms
+    rooms = self.get_plan(scene[&quot;query&quot;], scene[&quot;raw_floor_plan&quot;], visualize)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 62, in get_plan
+    parsed_plan = self.parse_raw_plan(raw_plan)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 143, in parse_raw_plan
+    raise ValueError(msg)
+ValueError: Room polygons must not overlap.</code></pre>
+<hr />
+<h2 id="experiment-48">Experiment 48</h2>
+<p><strong>Category:</strong> Scene Complexity</p>
+<p><strong>Query:</strong> A warehouse with 20 tables and 50 chairs arranged for an event.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_with_20_tables_and-2025-02-15-00-56-24-450101/A_warehouse_with_20_tables_and.png" alt="" /><figcaption>Experiment 48</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-49">Experiment 49</h2>
+<p><strong>Category:</strong> Scene Complexity</p>
+<p><strong>Query:</strong> A warehouse where objects are placed randomly without structure.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_where_objects_are_-2025-02-15-00-59-27-359860/A_warehouse_where_objects_are_.png" alt="" /><figcaption>Experiment 49</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-50">Experiment 50</h2>
+<p><strong>Category:</strong> Scene Complexity</p>
+<p><strong>Query:</strong> A warehouse with perfectly symmetrical object placement.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_with_perfectly_sym-2025-02-15-01-02-13-300053/A_warehouse_with_perfectly_sym.png" alt="" /><figcaption>Experiment 50</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-51">Experiment 51</h2>
+<p><strong>Category:</strong> Style &amp; Theme</p>
+<p><strong>Query:</strong> A medieval-style warehouse with wooden furniture.</p>
+<figure>
+<img src="./data/scenes/A_medieval-style_warehouse_wit-2025-02-15-01-08-49-019897/A_medieval-style_warehouse_wit.png" alt="" /><figcaption>Experiment 51</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-52">Experiment 52</h2>
+<p><strong>Category:</strong> Style &amp; Theme</p>
+<p><strong>Query:</strong> A futuristic warehouse with neon-lit shelves.</p>
+<figure>
+<img src="./data/scenes/A_futuristic_warehouse_with_ne-2025-02-15-01-11-04-102962/A_futuristic_warehouse_with_ne.png" alt="" /><figcaption>Experiment 52</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-53">Experiment 53</h2>
+<p><strong>Category:</strong> Style &amp; Theme</p>
+<p><strong>Query:</strong> A minimalist warehouse with only essential furniture.</p>
+<figure>
+<img src="./data/scenes/A_minimalist_warehouse_with_on-2025-02-15-01-16-28-720138/A_minimalist_warehouse_with_on.png" alt="" /><figcaption>Experiment 53</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-54">Experiment 54</h2>
+<p><strong>Category:</strong> Style &amp; Theme</p>
+<p><strong>Query:</strong> A rustic warehouse with wooden crates and old decorations.</p>
+<figure>
+<img src="./data/scenes/A_rustic_warehouse_with_wooden-2025-02-15-01-20-06-228701/A_rustic_warehouse_with_wooden.png" alt="" /><figcaption>Experiment 54</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-55">Experiment 55</h2>
+<p><strong>Category:</strong> Style &amp; Theme</p>
+<p><strong>Query:</strong> A cyberpunk warehouse with holographic elements.</p>
+<figure>
+<img src="./data/scenes/A_cyberpunk_warehouse_with_hol-2025-02-15-01-26-10-711652/A_cyberpunk_warehouse_with_hol.png" alt="" /><figcaption>Experiment 55</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-56">Experiment 56</h2>
+<p><strong>Category:</strong> Style &amp; Theme</p>
+<p><strong>Query:</strong> A Victorian-style warehouse with antique furniture.</p>
+<figure>
+<img src="./data/scenes/A_Victorian-style_warehouse_wi-2025-02-15-01-35-12-841571/A_Victorian-style_warehouse_wi.png" alt="" /><figcaption>Experiment 56</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-57">Experiment 57</h2>
+<p><strong>Category:</strong> Style &amp; Theme</p>
+<p><strong>Query:</strong> A warehouse that looks like a sci-fi spaceship interior.</p>
+<p><em>No image found.</em></p>
+<p><strong>Error Log:</strong></p>
+<pre><code>Traceback (most recent call last):
+  File &quot;/home/dxv2k/.local/lib/python3.10/site-packages/ai2thor/controller.py&quot;, line 1070, in step
+    self.last_event = self.server.receive()
+  File &quot;/home/dxv2k/.local/lib/python3.10/site-packages/ai2thor/fifo_server.py&quot;, line 262, in receive
+    metadata, files = self._recv_message(
+  File &quot;/home/dxv2k/.local/lib/python3.10/site-packages/ai2thor/fifo_server.py&quot;, line 179, in _recv_message
+    header = self._read_with_timeout(
+  File &quot;/home/dxv2k/.local/lib/python3.10/site-packages/ai2thor/fifo_server.py&quot;, line 147, in _read_with_timeout
+    raise TimeoutError(
+TimeoutError: Reading from AI2-THOR backend timed out (using 100.0s) timeout.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 131, in generate_all_experiments
+    save_dir = generate_single_scene(args)
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 57, in generate_single_scene
+    _, save_dir = args.model.generate_scene(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 334, in generate_scene
+    scene = self.generate_small_objects(scene, used_assets=used_assets)
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 226, in generate_small_objects
+    controller = self.small_object_generator.start_controller(
+  File &quot;./ai2holodeck/generation/small_objects.py&quot;, line 287, in start_controller
+    controller = Controller(
+  File &quot;/home/dxv2k/.local/lib/python3.10/site-packages/ai2thor/controller.py&quot;, line 618, in __init__
+    event = self.reset(scene)
+  File &quot;/home/dxv2k/.local/lib/python3.10/site-packages/ai2thor/controller.py&quot;, line 777, in reset
+    self.last_event = self.step(action=&quot;CreateHouse&quot;, house=scene)
+  File &quot;/home/dxv2k/.local/lib/python3.10/site-packages/ai2thor/controller.py&quot;, line 1066, in step
+    self.run_action_hook(action)
+  File &quot;/home/dxv2k/.local/lib/python3.10/site-packages/ai2thor/controller.py&quot;, line 997, in run_action_hook
+    event = method(action, self)
+  File &quot;/home/dxv2k/.local/lib/python3.10/site-packages/ai2thor/hooks/procedural_asset_hook.py&quot;, line 109, in CreateHouse
+    return create_assets_if_not_exist(
+  File &quot;/home/dxv2k/.local/lib/python3.10/site-packages/ai2thor/hooks/procedural_asset_hook.py&quot;, line 58, in create_assets_if_not_exist
+    evt = create_asset(
+  File &quot;/home/dxv2k/.local/lib/python3.10/site-packages/ai2thor/util/runtime_assets.py&quot;, line 327, in create_asset
+    evt = thor_controller.step(
+  File &quot;/home/dxv2k/.local/lib/python3.10/site-packages/ai2thor/controller.py&quot;, line 1092, in step
+    raise (TimeoutError if isinstance(e, TimeoutError) else RuntimeError)(
+TimeoutError: Error encountered when running action {&#39;action&#39;: &#39;CreateRuntimeAsset&#39;, &#39;asset&#39;: {&#39;action&#39;: &#39;CreateObjectPrefab&#39;, &#39;name&#39;: &#39;b765d3d9d46f4178bac931b47acbd4b3&#39;, &#39;receptacleCandidate&#39;: True, &#39;albedoTexturePath&#39;: &#39;/home/dxv2k/.ai2thor/releases/thor-Linux64-3213d486cd09bcbafce33561997355983bdf8d1a/processed_models/b765d3d9d46f4178bac931b47acbd4b3/albedo.jpg&#39;, &#39;normalTexturePath&#39;: &#39;/home/dxv2k/.ai2thor/releases/thor-Linux64-3213d486cd09bcbafce33561997355983bdf8d1a/processed_models/b765d3d9d46f4178bac931b47acbd4b3/normal.jpg&#39;, &#39;emissionTexturePath&#39;: &#39;/home/dxv2k/.ai2thor/releases/thor-Linux64-3213d486cd09bcbafce33561997355983bdf8d1a/processed_models/b765d3d9d46f4178bac931b47acbd4b3/emission.jpg&#39;, &#39;vertices&#39;: [{&#39;x&#39;: 0.29167421904177404, &#39;y&#39;: 0.006213910211179459, &#39;z&#39;: -0.07122233916277902}, {&#39;x&#39;: 0.27602690215557135, &#39;y&#39;: 0.004885275197245787, &#39;z&#39;: -0.09495804059825287}, {&#39;x&#39;: 0.2827433169030601, &#39;y&#39;: 0.007696929112940381, &#39;z&#39;: -0.09876034539995}, {&#39;x&#39;: 0.2971883633596852, &#39;y&#39;: 0.012 ... p&#39;, &#39;secondaryProperties&#39;: []}}, &#39;sequenceId&#39;: 24} in scene Procedural.</code></pre>
+<hr />
+<h2 id="experiment-58">Experiment 58</h2>
+<p><strong>Category:</strong> Style &amp; Theme</p>
+<p><strong>Query:</strong> A luxury warehouse with golden accents and modern furniture.</p>
+<p><em>No image found.</em></p>
+<p><strong>Error Log:</strong></p>
+<pre><code>Traceback (most recent call last):
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 131, in generate_all_experiments
+    save_dir = generate_single_scene(args)
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 57, in generate_single_scene
+    _, save_dir = args.model.generate_scene(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 282, in generate_scene
+    scene = self.generate_rooms(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 156, in generate_rooms
+    rooms = self.floor_generator.generate_rooms(scene, additional_requirements_room)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 58, in generate_rooms
+    rooms = self.get_plan(scene[&quot;query&quot;], scene[&quot;raw_floor_plan&quot;], visualize)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 62, in get_plan
+    parsed_plan = self.parse_raw_plan(raw_plan)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 143, in parse_raw_plan
+    raise ValueError(msg)
+ValueError: No vertex of a room can be inside another room.</code></pre>
+<hr />
+<h2 id="experiment-59">Experiment 59</h2>
+<p><strong>Category:</strong> Style &amp; Theme</p>
+<p><strong>Query:</strong> A haunted warehouse with old, broken furniture and dim lighting.</p>
+<p><em>No image found.</em></p>
+<p><strong>Error Log:</strong></p>
+<pre><code>Traceback (most recent call last):
+  File &quot;/home/dxv2k/.local/lib/python3.10/site-packages/ai2thor/controller.py&quot;, line 1070, in step
+    self.last_event = self.server.receive()
+  File &quot;/home/dxv2k/.local/lib/python3.10/site-packages/ai2thor/fifo_server.py&quot;, line 262, in receive
+    metadata, files = self._recv_message(
+  File &quot;/home/dxv2k/.local/lib/python3.10/site-packages/ai2thor/fifo_server.py&quot;, line 179, in _recv_message
+    header = self._read_with_timeout(
+  File &quot;/home/dxv2k/.local/lib/python3.10/site-packages/ai2thor/fifo_server.py&quot;, line 147, in _read_with_timeout
+    raise TimeoutError(
+TimeoutError: Reading from AI2-THOR backend timed out (using 100.0s) timeout.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 131, in generate_all_experiments
+    save_dir = generate_single_scene(args)
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 57, in generate_single_scene
+    _, save_dir = args.model.generate_scene(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 389, in generate_scene
+    top_image = get_top_down_frame(scene, self.objaverse_asset_dir, 1024, 1024)
+  File &quot;./ai2holodeck/generation/utils.py&quot;, line 84, in get_top_down_frame
+    event = controller.step(
+  File &quot;/home/dxv2k/.local/lib/python3.10/site-packages/ai2thor/controller.py&quot;, line 1092, in step
+    raise (TimeoutError if isinstance(e, TimeoutError) else RuntimeError)(
+TimeoutError: Error encountered when running action {&#39;action&#39;: &#39;AddThirdPartyCamera&#39;, &#39;position&#39;: {&#39;x&#39;: 6.5, &#39;y&#39;: 10.761123180389404, &#39;z&#39;: 4.0}, &#39;rotation&#39;: {&#39;x&#39;: 90.0, &#39;y&#39;: 0.0, &#39;z&#39;: 0.0}, &#39;orthographic&#39;: False, &#39;fieldOfView&#39;: 60, &#39;farClippingPlane&#39;: 20.761123180389404, &#39;nearClippingPlane&#39;: 6.761123180389404, &#39;skyboxColor&#39;: &#39;white&#39;, &#39;sequenceId&#39;: 59} in scene Procedural.</code></pre>
+<hr />
+<h2 id="experiment-60">Experiment 60</h2>
+<p><strong>Category:</strong> Style &amp; Theme</p>
+<p><strong>Query:</strong> A post-apocalyptic warehouse with abandoned, worn-out objects.</p>
+<figure>
+<img src="./data/scenes/A_post-apocalyptic_warehouse_w-2025-02-15-02-02-17-074395/A_post-apocalyptic_warehouse_w.png" alt="" /><figcaption>Experiment 60</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-61">Experiment 61</h2>
+<p><strong>Category:</strong> Object Scaling</p>
+<p><strong>Query:</strong> A warehouse with an oversized sofa in the middle.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_with_an_oversized_-2025-02-15-02-05-47-055702/A_warehouse_with_an_oversized_.png" alt="" /><figcaption>Experiment 61</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-62">Experiment 62</h2>
+<p><strong>Category:</strong> Object Scaling</p>
+<p><strong>Query:</strong> A warehouse with a tiny chair next to a massive table.</p>
+<p><em>No image found.</em></p>
+<p><strong>Error Log:</strong></p>
+<pre><code>Traceback (most recent call last):
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 131, in generate_all_experiments
+    save_dir = generate_single_scene(args)
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 57, in generate_single_scene
+    _, save_dir = args.model.generate_scene(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 282, in generate_scene
+    scene = self.generate_rooms(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 156, in generate_rooms
+    rooms = self.floor_generator.generate_rooms(scene, additional_requirements_room)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 58, in generate_rooms
+    rooms = self.get_plan(scene[&quot;query&quot;], scene[&quot;raw_floor_plan&quot;], visualize)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 62, in get_plan
+    parsed_plan = self.parse_raw_plan(raw_plan)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 143, in parse_raw_plan
+    raise ValueError(msg)
+ValueError: Room polygons must not overlap.</code></pre>
+<hr />
+<h2 id="experiment-63">Experiment 63</h2>
+<p><strong>Category:</strong> Object Scaling</p>
+<p><strong>Query:</strong> A warehouse where every object is scaled to double its normal size.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_where_every_object-2025-02-15-02-08-54-470987/A_warehouse_where_every_object.png" alt="" /><figcaption>Experiment 63</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-64">Experiment 64</h2>
+<p><strong>Category:</strong> Object Scaling</p>
+<p><strong>Query:</strong> A warehouse with an extremely large chandelier hanging from the ceiling.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_with_an_extremely_-2025-02-15-02-12-44-469491/A_warehouse_with_an_extremely_.png" alt="" /><figcaption>Experiment 64</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-65">Experiment 65</h2>
+<p><strong>Category:</strong> Object Scaling</p>
+<p><strong>Query:</strong> A warehouse with a miniaturized version of furniture.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_with_a_miniaturize-2025-02-15-02-15-34-872330/A_warehouse_with_a_miniaturize.png" alt="" /><figcaption>Experiment 65</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-66">Experiment 66</h2>
+<p><strong>Category:</strong> Object Scaling</p>
+<p><strong>Query:</strong> A warehouse with a bed that is ten times its normal size.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_with_a_bed_that_is-2025-02-15-02-19-23-982690/A_warehouse_with_a_bed_that_is.png" alt="" /><figcaption>Experiment 66</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-67">Experiment 67</h2>
+<p><strong>Category:</strong> Object Scaling</p>
+<p><strong>Query:</strong> A warehouse with a normal-sized desk but a gigantic lamp.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_with_a_normal-size-2025-02-15-02-21-51-670188/A_warehouse_with_a_normal-size.png" alt="" /><figcaption>Experiment 67</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-68">Experiment 68</h2>
+<p><strong>Category:</strong> Object Scaling</p>
+<p><strong>Query:</strong> A warehouse where a tiny vending machine is next to a massive refrigerator.</p>
+<p><em>No image found.</em></p>
+<p><strong>Error Log:</strong></p>
+<pre><code>Traceback (most recent call last):
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 131, in generate_all_experiments
+    save_dir = generate_single_scene(args)
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 57, in generate_single_scene
+    _, save_dir = args.model.generate_scene(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 282, in generate_scene
+    scene = self.generate_rooms(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 156, in generate_rooms
+    rooms = self.floor_generator.generate_rooms(scene, additional_requirements_room)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 58, in generate_rooms
+    rooms = self.get_plan(scene[&quot;query&quot;], scene[&quot;raw_floor_plan&quot;], visualize)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 62, in get_plan
+    parsed_plan = self.parse_raw_plan(raw_plan)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 143, in parse_raw_plan
+    raise ValueError(msg)
+ValueError: Each room polygon must share an edge with at least one other room polygon.</code></pre>
+<hr />
+<h2 id="experiment-69">Experiment 69</h2>
+<p><strong>Category:</strong> Object Scaling</p>
+<p><strong>Query:</strong> A warehouse with chairs that are much smaller than usual.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_with_chairs_that_a-2025-02-15-02-26-21-750899/A_warehouse_with_chairs_that_a.png" alt="" /><figcaption>Experiment 69</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-70">Experiment 70</h2>
+<p><strong>Category:</strong> Object Scaling</p>
+<p><strong>Query:</strong> A warehouse where objects are scaled randomly, creating a surreal effect.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_where_objects_are_-2025-02-15-02-28-53-193539/A_warehouse_where_objects_are_.png" alt="" /><figcaption>Experiment 70</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-71">Experiment 71</h2>
+<p><strong>Category:</strong> Lighting &amp; Environment</p>
+<p><strong>Query:</strong> A dimly lit warehouse with a single hanging lightbulb.</p>
+<figure>
+<img src="./data/scenes/A_dimly_lit_warehouse_with_a_s-2025-02-15-02-31-41-061632/A_dimly_lit_warehouse_with_a_s.png" alt="" /><figcaption>Experiment 71</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-72">Experiment 72</h2>
+<p><strong>Category:</strong> Lighting &amp; Environment</p>
+<p><strong>Query:</strong> A warehouse illuminated by neon floor lights.</p>
+<p><em>No image found.</em></p>
+<p><strong>Error Log:</strong></p>
+<pre><code>Traceback (most recent call last):
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 131, in generate_all_experiments
+    save_dir = generate_single_scene(args)
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 57, in generate_single_scene
+    _, save_dir = args.model.generate_scene(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 282, in generate_scene
+    scene = self.generate_rooms(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 156, in generate_rooms
+    rooms = self.floor_generator.generate_rooms(scene, additional_requirements_room)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 58, in generate_rooms
+    rooms = self.get_plan(scene[&quot;query&quot;], scene[&quot;raw_floor_plan&quot;], visualize)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 62, in get_plan
+    parsed_plan = self.parse_raw_plan(raw_plan)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 90, in parse_raw_plan
+    room_type, floor_design, wall_design, vertices = plan.split(&quot;|&quot;)
+ValueError: too many values to unpack (expected 4)</code></pre>
+<hr />
+<h2 id="experiment-73">Experiment 73</h2>
+<p><strong>Category:</strong> Lighting &amp; Environment</p>
+<p><strong>Query:</strong> A warehouse where the lighting is completely dark except for one spotlight.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_where_the_lighting-2025-02-15-02-34-44-137779/A_warehouse_where_the_lighting.png" alt="" /><figcaption>Experiment 73</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-74">Experiment 74</h2>
+<p><strong>Category:</strong> Lighting &amp; Environment</p>
+<p><strong>Query:</strong> A warehouse lit only by natural sunlight coming from windows.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_lit_only_by_natura-2025-02-15-02-36-46-806274/A_warehouse_lit_only_by_natura.png" alt="" /><figcaption>Experiment 74</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-75">Experiment 75</h2>
+<p><strong>Category:</strong> Lighting &amp; Environment</p>
+<p><strong>Query:</strong> A warehouse with flickering lights giving an eerie atmosphere.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_with_flickering_li-2025-02-15-02-39-33-739451/A_warehouse_with_flickering_li.png" alt="" /><figcaption>Experiment 75</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-76">Experiment 76</h2>
+<p><strong>Category:</strong> Lighting &amp; Environment</p>
+<p><strong>Query:</strong> A warehouse with warm yellow lighting, creating a cozy feel.</p>
+<p><em>No image found.</em></p>
+<p><strong>Error Log:</strong></p>
+<pre><code>Traceback (most recent call last):
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 131, in generate_all_experiments
+    save_dir = generate_single_scene(args)
+  File &quot;./ai2holodeck/exp_runner.py&quot;, line 57, in generate_single_scene
+    _, save_dir = args.model.generate_scene(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 282, in generate_scene
+    scene = self.generate_rooms(
+  File &quot;./ai2holodeck/generation/holodeck.py&quot;, line 156, in generate_rooms
+    rooms = self.floor_generator.generate_rooms(scene, additional_requirements_room)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 58, in generate_rooms
+    rooms = self.get_plan(scene[&quot;query&quot;], scene[&quot;raw_floor_plan&quot;], visualize)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 62, in get_plan
+    parsed_plan = self.parse_raw_plan(raw_plan)
+  File &quot;./ai2holodeck/generation/rooms.py&quot;, line 90, in parse_raw_plan
+    room_type, floor_design, wall_design, vertices = plan.split(&quot;|&quot;)
+ValueError: too many values to unpack (expected 4)</code></pre>
+<hr />
+<h2 id="experiment-77">Experiment 77</h2>
+<p><strong>Category:</strong> Lighting &amp; Environment</p>
+<p><strong>Query:</strong> A warehouse with blue LED lighting, making it look futuristic.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_with_blue_LED_ligh-2025-02-15-02-42-56-828429/A_warehouse_with_blue_LED_ligh.png" alt="" /><figcaption>Experiment 77</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-78">Experiment 78</h2>
+<p><strong>Category:</strong> Lighting &amp; Environment</p>
+<p><strong>Query:</strong> A warehouse where shadows are exaggerated due to strong lighting contrast.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_where_shadows_are_-2025-02-15-02-45-01-220953/A_warehouse_where_shadows_are_.png" alt="" /><figcaption>Experiment 78</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-79">Experiment 79</h2>
+<p><strong>Category:</strong> Lighting &amp; Environment</p>
+<p><strong>Query:</strong> A warehouse with a foggy atmosphere affecting visibility.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_with_a_foggy_atmos-2025-02-15-02-46-56-910272/A_warehouse_with_a_foggy_atmos.png" alt="" /><figcaption>Experiment 79</figcaption>
+</figure>
+<hr />
+<h2 id="experiment-80">Experiment 80</h2>
+<p><strong>Category:</strong> Lighting &amp; Environment</p>
+<p><strong>Query:</strong> A warehouse where light sources are scattered unevenly, causing random bright and dark spots.</p>
+<figure>
+<img src="./data/scenes/A_warehouse_where_light_source-2025-02-15-02-49-07-349720/A_warehouse_where_light_source.png" alt="" /><figcaption>Experiment 80</figcaption>
+</figure>
+<hr />
+</body>
+</html>

@@ -3,7 +3,7 @@ import os
 import traceback
 from argparse import ArgumentParser
 import torch.multiprocessing
-torch.multiprocessing.set_sharing_strategy('file_system')
+torch.multiprocessing.set_sharing_strategy("file_system")
 import compress_json
 from tqdm import tqdm
 
@@ -29,9 +29,9 @@ def generate_single_scene(args):
         print(f"Loading original scene from {args.original_scene}.")
         try:
             scene = compress_json.load(args.original_scene)
-        except:
+        except Exception as e:
             print(
-                f"[ERROR] Could not load original scene from given path {args.original_scene}."
+                f"[ERROR] Could not load original scene from given path {args.original_scene}. Error: {e}"
             )
             raise
     else:
@@ -42,10 +42,9 @@ def generate_single_scene(args):
             print(f"Loading existing scene from {path}.")
             try:
                 scene = compress_json.load(path)
-            except:
+            except Exception as e:
                 print(
-                    f"[ERROR] The path {path} exists but could not be loaded. Please delete"
-                    f" this file and try again."
+                    f"[ERROR] The path {path} exists but could not be loaded. Please delete this file and try again. Error: {e}"
                 )
                 raise
 
@@ -68,11 +67,12 @@ def generate_single_scene(args):
             use_milp=ast.literal_eval(args.use_milp),
             random_selection=ast.literal_eval(args.random_selection),
         )
-    except:
+    except Exception as e:
         print(
             f"[ERROR] Could not generate scene from {args.query}. Traceback:\n{traceback.format_exc()}"
         )
-        return save_dir
+        # return save_dir
+        raise 
 
     print(
         f"Generation complete for {args.query}. Scene saved and any other data saved to {save_dir}."
@@ -104,15 +104,65 @@ def generate_variants(args):
             number_of_variants=int(args.number_of_variants),
             used_assets=args.used_assets,
         )
-    except:
-        print(f"Could not generate variants from {args.query}.")
+    except Exception as e:
+        print(f"Could not generate variants from {args.query}. Error: {e}")
+
+
+def generate_all_experiments(args):
+    import csv
+    print(f"Loading experiments from {args.experiments_file}")
+    experiments = compress_json.load(args.experiments_file)
+
+    # Set up an error log file for capturing error tracebacks.
+    error_log_file = "error_logs.txt"
+    with open(error_log_file, "w") as elog:
+        elog.write("Experiment Error Logs\n\n")
+
+    results = []
+
+    # Iterate over each experiment category and its list of queries.
+    for category, queries in experiments.items():
+        print(f"Processing category: {category} with {len(queries)} experiments")
+        for query in queries:
+            args.query = query
+            print(f"Generating scene for query: {query}")
+            error_message = ""
+            try:
+                save_dir = generate_single_scene(args)
+            except Exception as e:
+                error_message = traceback.format_exc()
+                # Write error details to the error log file.
+                with open(error_log_file, "a") as elog:
+                    elog.write(
+                        f"Error in category '{category}', query '{query}':\n{error_message}\n\n"
+                    )
+                save_dir = ""
+            # Append the experiment result with error log (empty if none).
+            results.append({
+                "category": category,
+                "query": query,
+                "file_path": save_dir,
+                "error_log": error_message,
+            })
+
+    # Write the collected results to a CSV file with an error_log column.
+    print(f"Writing results to CSV file: {args.results_csv}")
+    with open(args.results_csv, "w", newline="") as csv_file:
+        fieldnames = ["category", "query", "file_path", "error_log"]
+        writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+        writer.writeheader()
+        for row in results:
+            writer.writerow(row)
+
+    print("All experiments completed and results stored.")
+    print(f"Error logs (if any) can be found in {error_log_file}.")
 
 
 if __name__ == "__main__":
     parser = ArgumentParser()
     parser.add_argument(
         "--mode",
-        help="Mode to run in (generate_single_scene, generate_multi_scenes or generate_variants).",
+        help="Mode to run in (generate_single_scene, generate_multi_scenes, generate_variants, or generate_all_experiments).",
         default="generate_single_scene",
     )
     parser.add_argument(
@@ -173,13 +223,24 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--used_assets",
-        help="a list of assets which we want to exclude from the scene",
+        help="A list of assets which we want to exclude from the scene",
         default=[],
     )
     parser.add_argument(
         "--single_room",
         help="Whether to generate a single room scene.",
         default="False",
+    )
+    # New arguments for running all experiments.
+    parser.add_argument(
+        "--experiments_file",
+        help="Path to experiments JSON file.",
+        default="ai2holodeck/experiments.json",
+    )
+    parser.add_argument(
+        "--results_csv",
+        help="Path to CSV file to save experiment results.",
+        default="experiment_results.csv",
     )
 
     args = parser.parse_args()
@@ -197,7 +258,11 @@ if __name__ == "__main__":
         single_room=ast.literal_eval(args.single_room),
     )
 
-    if args.used_assets != [] and args.used_assets.endswith(".txt"):
+    if (
+        args.used_assets != []
+        and isinstance(args.used_assets, str)
+        and args.used_assets.endswith(".txt")
+    ):
         with open(args.used_assets, "r") as f:
             args.used_assets = f.readlines()
             args.used_assets = [asset.strip() for asset in args.used_assets]
@@ -206,15 +271,18 @@ if __name__ == "__main__":
 
     if args.mode == "generate_single_scene":
         save_dir = generate_single_scene(args)
-        print("-------DEBUG-------"*5)
+        print("-------DEBUG-------" * 5)
         print("save_dir: ", save_dir)
-        print("-------DEBUG-------"*5)
+        print("-------DEBUG-------" * 5)
 
     elif args.mode == "generate_multi_scenes":
         generate_multi_scenes(args)
 
     elif args.mode == "generate_variants":
         generate_variants(args)
+
+    elif args.mode == "generate_all_experiments":
+        generate_all_experiments(args)
 
     else:
         raise Exception(f"Mode {args.mode} not supported.")

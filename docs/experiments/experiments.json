@@ -1,0 +1,98 @@
+{
+    "Object Placement": [
+        "A warehouse with a chair in the exact center.",
+        "A warehouse with a table placed precisely in the middle.",
+        "A warehouse with a single bed positioned at the center of the room.",
+        "A warehouse with a lamp placed in the center of the floor.",
+        "A warehouse with a painting hanging at the center of the main wall.",
+        "A warehouse with a rectangular carpet exactly centered.",
+        "A warehouse with a vending machine positioned in the middle.",
+        "A warehouse with a desk placed symmetrically in the center.",
+        "A warehouse with a television mounted at the center of the wall.",
+        "A warehouse with a statue standing at the room's center."
+    ],
+    "Object Relationship": [
+        "A warehouse with a chair facing a desk.",
+        "A warehouse with a sofa facing a television, with a rug underneath.",
+        "A warehouse with a table positioned between two chairs.",
+        "A warehouse with a lamp placed next to a nightstand.",
+        "A warehouse with a painting above the couch.",
+        "A warehouse with a dining table surrounded by four chairs.",
+        "A warehouse with a bookshelf aligned against the wall.",
+        "A warehouse with a bed and a nightstand beside it.",
+        "A warehouse with a mirror mounted on the wall above a dresser.",
+        "A warehouse with a refrigerator placed next to a counter."
+    ],
+    "Object Overlap": [
+        "A warehouse with a chair inside another chair.",
+        "A warehouse with a table placed over another table.",
+        "A warehouse with a desk overlapping a shelf.",
+        "A warehouse with a cabinet intersecting a fridge.",
+        "A warehouse with two beds stacked on top of each other.",
+        "A warehouse where a rug is floating above the floor.",
+        "A warehouse where a chair is embedded halfway into a couch.",
+        "A warehouse where a vending machine is inside another vending machine.",
+        "A warehouse where a bookshelf overlaps with a sofa.",
+        "A warehouse where a TV is inside a wall."
+    ],
+    "Blocking & Accessibility": [
+        "A warehouse where the entrance is blocked by a stack of crates.",
+        "A warehouse where a forklift is obstructing the main door.",
+        "A warehouse where a car is parked inside, blocking access.",
+        "A warehouse with a barricade preventing movement.",
+        "A warehouse where boxes are blocking the staircase.",
+        "A warehouse where a large table obstructs the only exit.",
+        "A warehouse where a chair is placed in front of a door, preventing entry.",
+        "A warehouse where a large rack is positioned in a narrow corridor.",
+        "A warehouse where a piece of machinery blocks the loading bay.",
+        "A warehouse where a sofa is placed in front of the emergency exit."
+    ],
+    "Scene Complexity": [
+        "A warehouse with a single chair in an empty room.",
+        "A warehouse filled with scattered furniture.",
+        "A warehouse with 100 chairs arranged in a grid.",
+        "A warehouse with a chaotic mix of furniture and objects.",
+        "A warehouse with shelves systematically arranged in rows.",
+        "A warehouse with objects stacked chaotically on top of each other.",
+        "A warehouse with an open floor space but a cluttered corner.",
+        "A warehouse with 20 tables and 50 chairs arranged for an event.",
+        "A warehouse where objects are placed randomly without structure.",
+        "A warehouse with perfectly symmetrical object placement."
+    ],
+    "Style & Theme": [
+        "A medieval-style warehouse with wooden furniture.",
+        "A futuristic warehouse with neon-lit shelves.",
+        "A minimalist warehouse with only essential furniture.",
+        "A rustic warehouse with wooden crates and old decorations.",
+        "A cyberpunk warehouse with holographic elements.",
+        "A Victorian-style warehouse with antique furniture.",
+        "A warehouse that looks like a sci-fi spaceship interior.",
+        "A luxury warehouse with golden accents and modern furniture.",
+        "A haunted warehouse with old, broken furniture and dim lighting.",
+        "A post-apocalyptic warehouse with abandoned, worn-out objects."
+    ],
+    "Object Scaling": [
+        "A warehouse with an oversized sofa in the middle.",
+        "A warehouse with a tiny chair next to a massive table.",
+        "A warehouse where every object is scaled to double its normal size.",
+        "A warehouse with an extremely large chandelier hanging from the ceiling.",
+        "A warehouse with a miniaturized version of furniture.",
+        "A warehouse with a bed that is ten times its normal size.",
+        "A warehouse with a normal-sized desk but a gigantic lamp.",
+        "A warehouse where a tiny vending machine is next to a massive refrigerator.",
+        "A warehouse with chairs that are much smaller than usual.",
+        "A warehouse where objects are scaled randomly, creating a surreal effect."
+    ],
+    "Lighting & Environment": [
+        "A dimly lit warehouse with a single hanging lightbulb.",
+        "A warehouse illuminated by neon floor lights.",
+        "A warehouse where the lighting is completely dark except for one spotlight.",
+        "A warehouse lit only by natural sunlight coming from windows.",
+        "A warehouse with flickering lights giving an eerie atmosphere.",
+        "A warehouse with warm yellow lighting, creating a cozy feel.",
+        "A warehouse with blue LED lighting, making it look futuristic.",
+        "A warehouse where shadows are exaggerated due to strong lighting contrast.",
+        "A warehouse with a foggy atmosphere affecting visibility.",
+        "A warehouse where light sources are scattered unevenly, causing random bright and dark spots."
+    ]
+}
